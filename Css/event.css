@@ -1,0 +1,65 @@
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.event-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.event-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.date {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.details {
+  padding: 10px;
+}
+
+.details .type {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 5px;
+}
+
+.details .title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.details .time {
+  font-size: 14px;
+  color: gray;
+}

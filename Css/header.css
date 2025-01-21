@@ -1,0 +1,68 @@
+/* Reset styles */
+body, h1, h2, h3, p, a {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+}
+
+.navbar {
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Top bar styles */
+.top-bar {
+  background-color: #8e8cd8; /* Light purple */
+  color: #fff;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar .left-section {
+  font-weight: bold;
+}
+
+.top-bar .right-section {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.top-bar .right-section a {
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.top-bar .right-section a:hover {
+  color: #ddd;
+}
+
+/* Bottom bar styles */
+.bottom-bar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fff;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+}
+
+.bottom-bar a {
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding: 5px;
+}
+
+.bottom-bar a:hover {
+  color: #003366;
+  border-bottom: 2px solid #003366;
+}
+
+/* Search icon alignment */
+.search-icon {
+  font-size: 16px;
+}

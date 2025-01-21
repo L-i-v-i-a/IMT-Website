@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMT News</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../Css/header.css">
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .classheader{
+          margin-bottom: 2.5%;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h3 {
+            font-size: 18px;
+            margin: 0 0 10px;
+            color: #003366;
+        }
+
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .more-btn {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            width: fit-content;
+        }
+
+        .more-btn:hover {
+            background-color: #574a66;
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+  
+     <div class="navbar">
+    <div class="top-bar">
+      <div class="left-section">Stanford University</div>
+      <div class="right-section">
+        <span>Information for:</span>
+        <a href="#">Student</a>
+        <a href="#">Faculty & Staff</a>
+        <a href="#">Families</a>
+        <a href="#">Visitors</a>
+        <a href="#">Alumni</a>
+        <a href="#" class="search-icon">🔍 Search</a>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <a href="#">News</a>
+      <a href="Events.html">Events</a>
+      <a href="Academics.html">Academics</a>
+      <a href="#">Research</a>
+      <a href="#">Health Care</a>
+      <a href="#">Campus Life</a>
+      <a href="#">Admission</a>
+      <a href="#">About</a>
+    </div>
+  </div>
+
+    <div class="container">
+      <div class="classheader">
+        <h1>IMT News</h1>
+        <p style="text-align:center;" >Stories about people, research, and innovation across the Farm</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x180" alt="Change We Desire">
+                <div class="card-content">
+                    <h3>THE CHANGE WE DESIRE</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x180" alt="Shopping Advert">
+                <div class="card-content">
+                    <h3>2023/2024 SHOPPING/ ADVERT FOR ADMISSIONS</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x180" alt="Book Donations">
+                <div class="card-content">
+                    <h3>Sir Emeka Offor Foundation Donates Books to IMT Enugu</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x180" alt="Art Auction">
+                <div class="card-content">
+                    <h3>Auction Extravaganza: IMT Enugu Showcases Priceless Art Works in a Week-Long Event</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x180" alt="Approved Textbooks">
+                <div class="card-content">
+                    <h3>First Semester 2023/2024: Approved Textbooks and Pricing</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x180" alt="Energy Crisis Solution">
+                <div class="card-content">
+                    <h3>I have solution to Nigeria energy crisis: Emma Scientist, IMT graduate declares</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x180" alt="Chiamaka Ozoigbondu">
+                <div class="card-content">
+                    <h3>Tragic Loss: IMT Mourns the Passing of Chiamaka Ozoigbondu</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x180" alt="IMT UNN Degree">
+                <div class="card-content">
+                    <h3>IMT/UNN DEGREE ADMISSION PROCESS</h3>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="more-btn">More about IMT</a>
+    </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="logo.png" alt="IMT Logo" class="logo">
+        <p>Shaping futures in Technology and Management since 1973</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>About IMT</h4>
+          <ul>
+            <li><a href="#">About IMT</a></li>
+            <li><a href="#">Leadership</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Academics</h4>
+          <ul>
+            <li><a href="#">Programmes</a></li>
+            <li><a href="#">Course Registration</a></li>
+            <li><a href="#">Academic Policies</a></li>
+            <li><a href="#">Academic Calendar</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Admissions</h4>
+          <ul>
+            <li><a href="#">Admission Process</a></li>
+            <li><a href="#">Find a Course</a></li>
+            <li><a href="#">Apply</a></li>
+            <li><a href="#">Admission Result Checker</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
