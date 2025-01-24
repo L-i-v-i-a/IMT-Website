@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { color: #333; }
+    form { margin-bottom: 20px; }
+    label, input, textarea { display: block; margin-bottom: 10px; width: 100%; }
+    input[type="file"] { padding: 5px; }
+    ul { list-style-type: none; padding: 0; }
+    li { margin: 10px 0; }
+    button { padding: 5px 10px; margin: 5px; cursor: pointer; }
+    button:hover { background-color: #007bff; color: white; }
+    #imagePreview img { margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h1>Manage News</h1>
+
+  <div>
+    <button id="logoutButton">Logout</button>
+  </div>
+
+  <h2 id="formTitle">Add News</h2>
+  <form id="newsForm">
+    <label for="newsTitle">Title:</label>
+    <input type="text" id="newsTitle" required>
+
+    <label for="newsDescription">Description:</label>
+    <input type="text" id="newsDescription" required>
+
+    <label for="newsContent">Content:</label>
+    <textarea id="newsContent" rows="5" required></textarea>
+
+    <label for="imageInput">Image:</label>
+    <input type="file" id="imageInput">
+
+    <div id="imagePreview"></div>
+
+    <button type="submit">Submit</button>
+  </form>
+  <a href="./gallery.html">gallery</a>
+  <h2>News List</h2>
+  <ul id="newsList"></ul>
+
+  <script src="news.js"></script>
+</body>
+</html>

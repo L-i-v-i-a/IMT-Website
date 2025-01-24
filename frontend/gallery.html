@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+</head>
+<body>
+  <h1>Gallery</h1>
+
+  <div>
+    <button id="logoutButton">Logout</button>
+  </div>
+
+  <h2 id="formTitle">Add Gallery Image</h2>
+  
+  <!-- Form to Add/Edit Gallery Image -->
+  <form id="galleryForm">
+    <label for="imageCaption">Caption:</label>
+    <input type="text" id="imageCaption" required><br><br>
+
+    <label for="imageInput">Image:</label>
+    <input type="file" id="imageInput" accept="image/*"><br><br>
+
+    <div id="imagePreview"></div><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <h3>Gallery Images</h3>
+  <ul id="galleryList"></ul>
+
+  <script src="gallery.js"></script>
+</body>
+</html>
