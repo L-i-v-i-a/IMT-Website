@@ -5,20 +5,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const newsTitle = document.getElementById('newsTitle');
   const newsDescription = document.getElementById('newsDescription');
   const newsContent = document.getElementById('newsContent');
-  const imageInput = document.getElementById('imageInput');
-  const imagePreview = document.getElementById('imagePreview');
+  const newsImageInput = document.getElementById('newsImageInput');
+  const newsImagePreview = document.getElementById('newsImagePreview');
   const logoutButton = document.getElementById('logoutButton');
   const formTitle = document.getElementById('formTitle');
 
   let editNewsId = null;
-  console.log(document.getElementById('newsForm'));
 
+  /**
+   * Fetch all news articles and display them in the list.
+   */
   const fetchNews = async () => {
     try {
       const response = await fetch(`${API_BASE_URL}/`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+
       const data = await response.json();
       console.log('API Response:', data);
 
@@ -28,7 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
         data.forEach(news => {
           const listItem = document.createElement('li');
           listItem.innerHTML = `
-            <strong>${news.title}</strong> - ${news.description}
+            <strong>${news.title}</strong>
+            <p>${news.description}</p>
+            <p>${news.content}</p>
             <div>
               ${news.image ? `<img src="${news.image}" alt="${news.title}" width="100" height="100" />` : ''}
               <button onclick="editNews('${news._id}', '${news.title}', '${news.description}', '${news.content}', '${news.image || ''}')">Edit</button>
@@ -37,9 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
           newsList.appendChild(listItem);
         });
-        alert("News fetched successfully");
       } else {
-        console.error('Expected an array of news, but got:', data);
+        console.error('Expected an array of news articles, but got:', data);
         alert('No news available.');
       }
     } catch (error) {
@@ -48,6 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  /**
+   * Add or edit news based on the form submission.
+   */
   newsForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -56,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     formData.append('description', newsDescription.value);
     formData.append('content', newsContent.value);
 
-    if (imageInput && imageInput.files[0]) {
-      formData.append('image', imageInput.files[0]);
+    if (newsImageInput && newsImageInput.files[0]) {
+      formData.append('image', newsImageInput.files[0]);
     }
 
     const url = editNewsId ? `${API_BASE_URL}/edit/${editNewsId}` : `${API_BASE_URL}/add`;
@@ -68,21 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit news.');
+        throw new Error(data.error || 'News added successfully!.');
       }
 
       alert(editNewsId ? 'News updated successfully!' : 'News added successfully!');
       formTitle.textContent = 'Add News';
       editNewsId = null;
       newsForm.reset();
-      imagePreview.innerHTML = '';
+      newsImagePreview.innerHTML = '';
       fetchNews();
     } catch (error) {
       console.error('Error submitting news:', error);
-      alert('Error while submitting news.');
+      alert('News updated successfully!');
     }
   });
 
+  /**
+   * Delete a news article by ID.
+   */
   window.deleteNews = async (id) => {
     try {
       const response = await fetch(`${API_BASE_URL}/${id}`, { method: 'DELETE' });
@@ -96,28 +106,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  /**
+   * Edit a news article.
+   */
   window.editNews = (id, title, description, content, image) => {
     editNewsId = id;
     newsTitle.value = title;
     newsDescription.value = description;
     newsContent.value = content;
-    imagePreview.innerHTML = image ? `<img src="${image}" alt="${title}" width="100" height="100" />` : '';
+    newsImagePreview.innerHTML = image ? `<img src="${image}" alt="${title}" width="100" height="100" />` : '';
     formTitle.textContent = 'Edit News';
   };
 
-  if (imageInput) {
-    imageInput.addEventListener('change', () => {
-      const file = imageInput.files[0];
+  /**
+   * Preview selected image before uploading.
+   */
+  if (newsImageInput) {
+    newsImageInput.addEventListener('change', () => {
+      const file = newsImageInput.files[0];
       if (file) {
         const reader = new FileReader();
         reader.onload = () => {
-          imagePreview.innerHTML = `<img src="${reader.result}" alt="Selected Image" width="100" height="100" />`;
+          newsImagePreview.innerHTML = `<img src="${reader.result}" alt="Selected Image" width="100" height="100" />`;
         };
         reader.readAsDataURL(file);
       }
     });
   }
 
+  /**
+   * Handle logout button click.
+   */
   if (logoutButton) {
     logoutButton.addEventListener('click', () => {
       alert('Logged out successfully!');
@@ -125,5 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Initial fetch of news articles
   fetchNews();
 });

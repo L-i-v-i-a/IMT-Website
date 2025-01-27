@@ -6,7 +6,7 @@
   <title>Course Management</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* General Reset */
+    
     * {
       margin: 0;
       padding: 0;
@@ -19,12 +19,74 @@
       color: #333;
       line-height: 1.6;
     }
+    h1, h2 {
+      text-align: center;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    ul li img {
+      display: block;
+      margin: 10px 0;
+    }
+
+    button {
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 3px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    form {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form div {
+      margin-bottom: 10px;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      display: block;
+      margin: 10px 0;
+    }
+
 
     h1, h2, h3 {
       color: #2c3e50;
     }
 
-    /* Page Layout */
+
     .container {
       display: flex;
       justify-content: space-between;
@@ -35,7 +97,6 @@
       flex-wrap: wrap;
     }
 
-    /* Floating Box */
     .floating-boxes {
       display: flex;
       justify-content: center;
@@ -66,7 +127,6 @@
       background-color: #ecf0f1;
     }
 
-    /* Search Section */
     #searchInput {
       width: 70%;
       padding: 12px 15px;
@@ -206,7 +266,7 @@
     </div>
   </div>
 
-  <div id="coursesSection">
+  <div id="gallerySection">
     <h1>Gallery</h1>
     <form id="galleryForm">
       <label for="imageCaption">Caption:</label>
@@ -220,27 +280,68 @@
     <ul id="galleryList"></ul>
   </div>
 
-  <div id="gallerySection">
-    <h1>Manage News</h1>
+  <div id="newsSection">
+    <h3 id="formTitle">Add News</h3>
     <form id="newsForm">
-      <label for="newsTitle">Title:</label>
-      <input type="text" id="newsTitle" required>
-      <label for="newsDescription">Description:</label>
-      <input type="text" id="newsDescription" required>
-      <label for="newsContent">Content:</label>
-      <textarea id="newsContent" rows="5" required></textarea>
-      <label for="imageInput">Image:</label>
-      <input type="file" id="imageInput">
-      <div id="imagePreview"></div>
+      <input type="text" id="newsTitle" placeholder="Title" required />
+      <textarea id="newsDescription" placeholder="Description" required></textarea>
+      <textarea id="newsContent" placeholder="Content" required></textarea>
+      <input type="file" id="newsImageInput" />
       <button type="submit">Submit</button>
     </form>
-    <h2>News List</h2>
+    
     <ul id="newsList"></ul>
-  </div>
+    <div id="newsImagePreview"></div>
 
+    <h2 id="formTitle">Add Event</h2>
+    <form id="eventForm">
+      <div>
+        <label for="eventTitle">Title:</label>
+        <input type="text" id="eventTitle" placeholder="Enter event title" required>
+      </div>
+      <div>
+        <label for="eventDescription">Description:</label>
+        <textarea id="eventDescription" placeholder="Enter event description" rows="4" required></textarea>
+      </div>
+      <div>
+        <label for="eventDate">Date:</label>
+        <input type="date" id="eventDate" required>
+      </div>
+      <div>
+        <label for="eventTime">Time:</label>
+        <input type="time" id="eventTime" required>
+      </div>
+      <div>
+        <label for="eventVenue">Venue:</label>
+        <input type="text" id="eventVenue" placeholder="Enter event venue" required>
+      </div>
+      <div>
+        <label for="moreInfo">More Information:</label>
+        <textarea id="moreInfo" placeholder="Enter additional information" rows="4"></textarea>
+      </div>
+      <div>
+        <label for="imageInput">Image:</label>
+        <input type="file" id="imageInput" accept="image/*">
+        <div id="imagePreview"></div>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Event List</h2>
+    <ul id="eventsList">
+      
+    </ul>
+  </section>
+ 
+
+
+    <button id="logoutButton">Logout</button>
   <script src="script.js"></script>
   <script src="search.js"></script>
   <script src="gallery.js"></script>
   <script src="news.js"></script>
+  <script src="events.js"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@ const galleryRoutes = require('./routes/galleryRoutes');
 const newsRoutes = require('./routes/newsRoutes');
 const applicationRoutes = require('./routes/applicationRoutes');
 const searchRoutes = require('./routes/searchRoutes');
+const eventRoutes = require('./routes/eventRoutes');
 
 
 dotenv.config({path:"./.env"})
@@ -46,6 +47,7 @@ app.use('/api/courses', courseRoutes);
 app.use('/api/galleries', galleryRoutes);
 app.use('/api/news', newsRoutes);
 app.use('/api/applications', applicationRoutes);
+app.use('/api/events', eventRoutes);
 app.use('/api', searchRoutes);
 
 

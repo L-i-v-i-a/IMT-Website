@@ -1,5 +1,6 @@
 const News = require('../models/news');
 
+
 exports.addNews = async (req, res) => {
   try {
     const { title, description, content } = req.body;
@@ -12,11 +13,11 @@ exports.addNews = async (req, res) => {
       title,
       description,
       content,
-      date: new Date(),
-      image: req.file ? `uploads/${req.file.filename}` : null, 
+      image: req.file ? `uploads/${req.file.filename}` : null,
     });
 
     await newNews.save();
+
     res.status(201).json({
       message: 'News added successfully!',
       news: {
@@ -32,6 +33,7 @@ exports.addNews = async (req, res) => {
   }
 };
 
+// Get All News
 exports.getNews = async (req, res) => {
   try {
     const newsList = await News.find();
@@ -50,6 +52,7 @@ exports.getNews = async (req, res) => {
   }
 };
 
+// Get News by ID
 exports.getNewsById = async (req, res) => {
   try {
     const news = await News.findById(req.params.id);
@@ -70,16 +73,12 @@ exports.getNewsById = async (req, res) => {
   }
 };
 
+// Edit News
 exports.editNews = async (req, res) => {
   try {
     const { title, description, content } = req.body;
 
-    const updateFields = {
-      title,
-      description,
-      content,
-      date: new Date(), 
-    };
+    const updateFields = { title, description, content };
 
     if (req.file) {
       updateFields.image = `uploads/${req.file.filename}`;
@@ -110,6 +109,7 @@ exports.editNews = async (req, res) => {
   }
 };
 
+// Delete News
 exports.deleteNews = async (req, res) => {
   try {
     const deletedNews = await News.findByIdAndDelete(req.params.id);
@@ -124,3 +124,4 @@ exports.deleteNews = async (req, res) => {
     res.status(500).json({ error: 'Server error while deleting news.' });
   }
 };
+

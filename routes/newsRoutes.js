@@ -1,19 +1,35 @@
 const express = require('express');
 const multer = require('multer');
 const newsController = require('../controllers/newsController');
+const path = require('path');
 
 const router = express.Router();
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/'); 
+  destination: (req, file, cb) => {
+    cb(null, 'uploads'); 
   },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname); 
-  }
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({
+  storage,
+  fileFilter: (req, file, cb) => {
+    const fileTypes = /jpeg|jpg|png|gif/;
+    const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimeType = fileTypes.test(file.mimetype);
+
+    if (extName && mimeType) {
+      return cb(null, true);
+    } else {
+      cb(new Error('Only images are allowed.'));
+    }
+  },
+});
+
+module.exports = upload;
 
 
 router.post('/add', upload.single('image'), newsController.addNews);  
